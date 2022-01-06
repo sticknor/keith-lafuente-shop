@@ -337,6 +337,8 @@ footer > div {
   padding: 100px 5%;
 }
 
+
+
 @media (max-width: 414px) {
   .detailLeftCol {
     width: 100%;
@@ -351,10 +353,28 @@ footer > div {
   margin-bottom: 20px;
 }
 
+.detail-variants {
+  margin-bottom: 20px;
+}
+
+.detail-variants select {
+  padding: 8px;
+  border-radius: 5px;
+  border-color: #A9A9A9;
+  font-family: 'Inconsolata', monospace;
+  font-size: 16px;
+}
+
 .add-to-bag-button {
   text-decoration: underline;
   cursor: pointer;
   font-weight: bold;
+}
+
+.add-to-bag-button-disabled {
+  cursor: not-allowed;
+  font-weight: bold;
+  color: #ccc;
 }
 
 .product-card {
