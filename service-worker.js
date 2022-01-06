@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/keith-lafuente-shop/precache-manifest.751978d5089ce2f050758cba7071fb95.js"
+  "/keith-lafuente-shop/precache-manifest.ed97ff9189baae9ea68f593d9bf4ef2a.js"
 );
 
 workbox.clientsClaim();
