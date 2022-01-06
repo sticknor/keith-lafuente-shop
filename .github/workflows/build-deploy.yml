@@ -12,7 +12,6 @@ on:
 jobs:
   build:
     name: Build
-    environment: github-pages
     runs-on: ubuntu-latest
     
     steps:
@@ -29,6 +28,9 @@ jobs:
     
     - name: Build project
       run: npm run build
+      env:
+        REACT_APP_SHOPIFY_DOMAIN: ${{ secrets.REACT_APP_SHOPIFY_DOMAIN }}
+        REACT_APP_SHOPIFY_ACCESS_TOKEN: ${{ secrets.REACT_APP_SHOPIFY_ACCESS_TOKEN }}
 
     - name: Upload production-ready build files
       uses: actions/upload-artifact@v2
@@ -38,7 +40,6 @@ jobs:
   
   deploy:
     name: Deploy
-    environment: github-pages
     needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
