@@ -136,7 +136,7 @@ function Detail(props) {
           }}
         >
           {' '}
-          Add to bag
+          {addToBagEnabled ? "Add to bag" : "Sold Out"}
         </div>
       </div>
     </>

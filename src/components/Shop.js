@@ -62,7 +62,7 @@ function Shop(props) {
                 title={product.title}
                 image={product.images[0]}
                 price={product.variants[0].price}
-                sold={index % 2 === 0}
+                sold={!product.variants[0].available}
               />
             </div>
           </Link>
