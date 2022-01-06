@@ -46,7 +46,7 @@ export default function App() {
     // Fetch all products in your shop
     if (shopClient) {
       shopClient.product.fetchAll().then((_products) => {
-        //console.log(_products);
+        console.log(_products);
         const _categories = {};
         for (var product of _products) {
           // console.log(product.productType)
@@ -131,7 +131,7 @@ export default function App() {
   };
 
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <div>
         <div
           style={{ backgroundImage: `url(${Background}` }}
