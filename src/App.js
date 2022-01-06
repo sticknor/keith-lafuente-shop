@@ -9,6 +9,8 @@ import Client from 'shopify-buy';
 import Shop from './components/Shop';
 import Cart from './components/Cart';
 import Detail from './components/Detail';
+import About from './components/About';
+import Faq from './components/Faq';
 import Menu from './components/Menu';
 
 // Assets
@@ -46,7 +48,7 @@ export default function App() {
     // Fetch all products in your shop
     if (shopClient) {
       shopClient.product.fetchAll().then((_products) => {
-        console.log(_products);
+        // console.log(_products);
         const _categories = {};
         for (var product of _products) {
           // console.log(product.productType)
@@ -171,6 +173,18 @@ export default function App() {
               }
             />
             <Route
+              path="about"
+              element={
+                <About />
+              }
+            />
+            <Route
+              path="faq"
+              element={
+                <Faq />
+              }
+            />
+            <Route
               path="/"
               element={
                 <Shop
@@ -185,9 +199,21 @@ export default function App() {
           </Routes>
           <footer>
             <div>keith lafuente 2021</div>
-            <div>shipping</div>
-            <div>contact</div>
-            <div>faq</div>
+            <div>
+              <Link to="/about">
+                about
+              </Link>
+            </div>
+            <div>
+              <Link to="/faq">
+                faq
+              </Link>
+            </div>
+            <div>
+              <a href="https://wayawaya.co/" target="_blank" rel="noreferrer">
+                stockists
+              </a>
+            </div>
           </footer>
         </div>
 
@@ -225,7 +251,7 @@ export default function App() {
           open={isCartOpen}
           color={cartColor}
         />
-      </div>
-    </Router>
+      </div >
+    </Router >
   );
 }
