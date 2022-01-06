@@ -12,6 +12,7 @@ on:
 jobs:
   build:
     name: Build
+    environment: github-pages
     runs-on: ubuntu-latest
     
     steps:
@@ -37,6 +38,7 @@ jobs:
   
   deploy:
     name: Deploy
+    environment: github-pages
     needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
