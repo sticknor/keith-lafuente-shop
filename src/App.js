@@ -131,7 +131,7 @@ export default function App() {
   };
 
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
       <div>
         <div
           style={{ backgroundImage: `url(${Background}` }}
