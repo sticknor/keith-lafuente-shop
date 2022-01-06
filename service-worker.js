@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/art_and_commerce_site/precache-manifest.a5cbc5eb248eed734c334125f6a4fcde.js"
+  "/keith-lafuente-shop/precache-manifest.86255fe88531ffb40bcbdf93b06417ce.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/art_and_commerce_site/index.html", {
+workbox.routing.registerNavigationRoute("/keith-lafuente-shop/index.html", {
   
   blacklist: [/^\/_/,/\/[^/]+\.[^/]+$/],
 });
