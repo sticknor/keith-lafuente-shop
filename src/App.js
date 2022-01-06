@@ -92,6 +92,7 @@ export default function App() {
         var _cartSize = 0;
         _checkout.lineItems.map((lineItem) => {
           _cartSize += lineItem.quantity;
+          return lineItem;
         });
         setCartSize(_cartSize);
       });

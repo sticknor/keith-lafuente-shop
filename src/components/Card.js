@@ -28,25 +28,25 @@ function Card(props) {
   //   }
   // }, [imageIndex, useImageCarousel]);
 
-  {
-    /* 
-          {prevEnabled && (
-            <div className={'prev-button'} onClick={handlePrevClick}></div>
-          )}
-          {nextEnabled && (
-            <div className={'next-button'} onClick={handleNextClick}></div>
-          )} */
-  }
+
+  /* 
+    {prevEnabled && (
+      <div className={'prev-button'} onClick={handlePrevClick}></div>
+    )}
+    {nextEnabled && (
+      <div className={'next-button'} onClick={handleNextClick}></div>
+    )} 
+  */
 
   return (
     <div className={'card-container'}>
       <img
         className={'card-image-underlay'}
-        alt={title}
+        alt={title || ""}
         style={{ width: '81%', left: '7%' }}
         src={image.src}
       />
-      <img className={'card-graphic-overlay'} src={CardDefault} />
+      <img alt={title || ""} çclassName={'card-graphic-overlay'} src={CardDefault} />
       <div className={'card-text-overlay'}>
         <div className={'card-title'}>{title}</div>
         {sold ? (

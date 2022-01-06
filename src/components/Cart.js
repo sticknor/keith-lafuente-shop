@@ -18,9 +18,11 @@ function Cart(props) {
   useEffect(() => {
     // Fetch all products in your cart
     if (checkoutID && shopClient) {
-      // shopClient.checkout.fetch(checkoutID).then((_checkout) => {
-      //   setCartProducts(_checkout.lineItems);
-      // });
+      shopClient.checkout.fetch(checkoutID).then((_checkout) => {
+        // setCartProducts(_checkout.lineItems);
+        console.log(_checkout);
+        setCartProducts([]);
+      });
     }
   }, []);
 
