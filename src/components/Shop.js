@@ -12,6 +12,11 @@ function Shop(props) {
   const { products, categories } = props;
   const { id } = useParams();
   const [filteredProducts, setFilteredProducts] = useState(products);
+  const [rotations, setRotations] = useState([]);
+
+  function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+  }
 
   useEffect(() => {
     if (id !== undefined && categories[id] !== undefined) {
@@ -19,11 +24,14 @@ function Shop(props) {
     } else {
       setFilteredProducts(products);
     }
+    // set Rotations
+    const randomRotations = products.map(() => {
+      return getRandomArbitrary(-0.8, 0.8);
+    });
+    setRotations(randomRotations);
+
   }, [id, products, categories]);
 
-  function getRandomArbitrary(min, max) {
-    return Math.random() * (max - min) + min;
-  }
 
   return (
     <div className="products-grid">
@@ -33,7 +41,7 @@ function Shop(props) {
             <div
               className={`product-card`}
               style={{
-                transform: `rotate(${getRandomArbitrary(-0.8, 0.8)}deg)`,
+                transform: `rotate(${rotations[index]}deg)`,
               }}
             >
               <Card
