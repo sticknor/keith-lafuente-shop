@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Shell from './../assets/shell.png';
 
 function Menu(props) {
-  const { onClose, onOpen, open, color, categories } = props;
+  const { onClose, onOpen, open, categories } = props;
 
   return (
     <>
@@ -16,13 +16,7 @@ function Menu(props) {
       </div>
 
       {/* Menu content */}
-      <div
-        className={`menu ${open ? 'menu-open' : 'menu-closed'}`}
-        style={{
-          // background: `${color}`,
-          background: `linear-gradient(90deg,${color} 0%,${color} 72%,transparent 100%)`,
-        }}
-      >
+      <div className={`menu ${open ? 'menu-open' : 'menu-closed'}`}>
         <div className="menu-content">
           {Object.keys(categories || {}).map((category, index) => {
             return (
@@ -49,7 +43,6 @@ Menu.propTypes = {
   onClose: PropTypes.func,
   onOpen: PropTypes.func,
   open: PropTypes.bool,
-  color: PropTypes.string,
   shopClient: PropTypes.object,
   categories: PropTypes.object,
 }

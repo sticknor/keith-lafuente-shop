@@ -15,7 +15,6 @@ function Detail(props) {
     shopClient,
     checkoutID,
     updateShopClient,
-    backgroundImage,
   } = props;
 
   const [imageIndex, setImageIndex] = useState(0);
@@ -87,10 +86,7 @@ function Detail(props) {
   if (product == null) return <div>loading...</div>;
   return (
     <>
-      <div
-        className="detailLeftCol"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
-      >
+      <div className="detailLeftCol" >
         <div className="detail-card">
           <Card
             title={product.title}
@@ -99,7 +95,7 @@ function Detail(props) {
             sold={!product.variants[variantIndex].available}
           />
           <div className="carousel-dots">
-            {product.images.length > 0 &&
+            {product.images.length > 1 &&
               product.images.map((image, index) => {
                 return (
                   <div
@@ -166,7 +162,6 @@ Detail.propTypes = {
   shopClient: PropTypes.object,
   checkoutID: PropTypes.string,
   updateShopClient: PropTypes.func,
-  backgroundImage: PropTypes.string
 }
 
 export default Detail;

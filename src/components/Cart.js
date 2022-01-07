@@ -8,7 +8,6 @@ function Cart(props) {
     checkoutURL,
     updateShopClient,
     onClose,
-    color,
     open,
     onOpen,
   } = props;
@@ -46,10 +45,7 @@ function Cart(props) {
 
       {open && <div className={'cartCancelArea'} onClick={onClose} />}
 
-      <div
-        style={{ backgroundColor: `${color}` }}
-        className={`cart ${open ? 'cart-open' : 'cart-closed'}`}
-      >
+      <div className={`cart ${open ? 'cart-open' : 'cart-closed'}`}>
         <div
           style={{
             display: 'flex',
@@ -98,7 +94,6 @@ Cart.propTypes = {
   checkoutURL: PropTypes.string,
   updateShopClient: PropTypes.func,
   onClose: PropTypes.func,
-  color: PropTypes.string,
   open: PropTypes.bool,
   onOpen: PropTypes.func,
 };
