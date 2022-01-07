@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "52d77392f481ac425701",
-    "url": "/keith-lafuente-shop/static/css/main.15f4a817.chunk.css"
+    "revision": "f579d1f66a3ce6750cfd",
+    "url": "/keith-lafuente-shop/static/css/main.08874674.chunk.css"
   },
   {
-    "revision": "52d77392f481ac425701",
-    "url": "/keith-lafuente-shop/static/js/main.5ac677c4.chunk.js"
+    "revision": "f579d1f66a3ce6750cfd",
+    "url": "/keith-lafuente-shop/static/js/main.711adf83.chunk.js"
   },
   {
     "revision": "756723eddafadd318a5b",
@@ -32,7 +32,7 @@ self.__precacheManifest = [
     "url": "/keith-lafuente-shop/static/media/keith_logo.0aaafbb1.svg"
   },
   {
-    "revision": "9aeb36f906de4c05ac3aa93618fd20fa",
+    "revision": "6e241bbc1ed0a9681041a9eab4ef2d1e",
     "url": "/keith-lafuente-shop/index.html"
   }
 ];
