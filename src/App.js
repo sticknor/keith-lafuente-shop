@@ -49,6 +49,7 @@ export default function App() {
     if (shopClient) {
       shopClient.product.fetchAll().then((_products) => {
         // console.log(_products);
+        _products = _products.reverse();
         const _categories = {};
         for (var product of _products) {
           // console.log(product.productType)
@@ -133,7 +134,7 @@ export default function App() {
   };
 
   return (
-    <HashRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter basename='/'>
       <div>
         <div
           style={{ backgroundImage: `url(${Background}` }}
