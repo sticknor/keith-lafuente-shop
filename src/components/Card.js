@@ -43,7 +43,7 @@ function Card(props) {
       <img
         className={'card-image-underlay'}
         alt={title || ""}
-        style={{ width: '81%', left: '7%' }}
+        style={{ width: '82%', left: '7%' }}
         src={image.src}
       />
       <img alt={title || ""} className={'card-graphic-overlay'} src={CardDefault} />

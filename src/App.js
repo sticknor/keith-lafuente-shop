@@ -1,6 +1,6 @@
 // React
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { Routes, HashRouter, Route, Link } from 'react-router-dom';
 
 // Shopify
 import Client from 'shopify-buy';
@@ -133,7 +133,7 @@ export default function App() {
   };
 
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <HashRouter basename={process.env.PUBLIC_URL}>
       <div>
         <div
           style={{ backgroundImage: `url(${Background}` }}
@@ -252,6 +252,6 @@ export default function App() {
           color={cartColor}
         />
       </div >
-    </Router >
+    </HashRouter >
   );
 }

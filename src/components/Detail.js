@@ -98,6 +98,24 @@ function Detail(props) {
             price={product.variants[variantIndex].price}
             sold={!product.variants[variantIndex].available}
           />
+          <div className="carousel-dots">
+            {product.images.length > 0 &&
+              product.images.map((image, index) => {
+                return (
+                  <div
+                    key={index}
+                    className="carousel-dot-touch-target"
+                    onClick={() => { setImageIndex(index); }}
+                  >
+                    <div
+                      key="index"
+                      className={`${index === imageIndex ? "selected-carousel-dot" : "carousel-dot"}`}
+                    />
+                  </div>
+                )
+              })
+            }
+          </div>
         </div>
         {prevEnabled && (
           <div className={'prev-button'} onClick={handlePrevClick}></div>

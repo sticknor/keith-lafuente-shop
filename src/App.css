@@ -389,14 +389,41 @@ footer > div {
   margin-top: 100px;
 }
 
+.carousel-dots {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  top: -3vh;
+}
+
+.carousel-dot-touch-target {
+  padding: 3px;
+  cursor: pointer;
+}
+
+.selected-carousel-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 5px;
+  background-color: #828282;
+}
+
+.carousel-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 5px;
+  background-color: #000000;
+}
+
 .prev-button {
   position: absolute;
   top: 25%;
   left: -20%;
   height: 50%;
   width: 50%;
-  background-color: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
+  /* background-color: rgba(255, 255, 255, 0.5); */
+  cursor: w-resize;
   user-select: none;
 }
 
@@ -406,7 +433,7 @@ footer > div {
   right: -20%;
   height: 50%;
   width: 50%;
-  background-color: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
+  /* background-color: rgba(255, 255, 255, 0.5); */
+  cursor: e-resize;
   user-select: none;
 }
