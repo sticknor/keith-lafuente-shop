@@ -1,23 +1,23 @@
 self.__precacheManifest = [
   {
-    "revision": "e74b263c71cde1357083",
-    "url": "/keith-lafuente-shop/static/css/main.22fb9a16.chunk.css"
+    "revision": "62400f37eb3da14ce5cb",
+    "url": "/keith-lafuente-shop/static/css/main.e7e1ed82.chunk.css"
   },
   {
-    "revision": "e74b263c71cde1357083",
-    "url": "/keith-lafuente-shop/static/js/main.c73da177.chunk.js"
+    "revision": "62400f37eb3da14ce5cb",
+    "url": "/keith-lafuente-shop/static/js/main.c2bab729.chunk.js"
   },
   {
-    "revision": "f072525b6adb8669bada",
-    "url": "/keith-lafuente-shop/static/js/runtime~main.76aa89aa.js"
+    "revision": "5d1682fab11400e9ba9f",
+    "url": "/keith-lafuente-shop/static/js/runtime~main.507a88af.js"
   },
   {
-    "revision": "0ccf02cb412da71ed028",
-    "url": "/keith-lafuente-shop/static/js/2.6929e918.chunk.js"
+    "revision": "3b09d09d650d801c32a1",
+    "url": "/keith-lafuente-shop/static/js/2.8839f3d4.chunk.js"
   },
   {
-    "revision": "f8ebc4f6a745d6346166",
-    "url": "/keith-lafuente-shop/static/js/3.89e2f634.chunk.js"
+    "revision": "6817b46944ab8a282ba2",
+    "url": "/keith-lafuente-shop/static/js/3.4770173c.chunk.js"
   },
   {
     "revision": "1f1fd608dfef603fbd3954fd95a9320e",
@@ -36,7 +36,7 @@ self.__precacheManifest = [
     "url": "/keith-lafuente-shop/static/media/keith_logo.0aaafbb1.svg"
   },
   {
-    "revision": "e2fd7ff5650348b9bc6def83e293cd8e",
+    "revision": "c6555152ab4f009980d4cbdafc9f1149",
     "url": "/keith-lafuente-shop/index.html"
   }
 ];
