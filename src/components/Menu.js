@@ -26,11 +26,7 @@ function Menu(props) {
             );
           })}
           <div className="menu-divider" />
-          <div className="menu-link">archive</div>
-          <div className="menu-link">runway</div>
-          <div className="menu-divider" />
-          <div className="menu-link">about</div>
-          <div className="menu-link">contact</div>
+          <Link to="/about" className="menu-link">contact</Link>
         </div>
       </div>
       {/* Menu cancel area */}

@@ -44,7 +44,13 @@ export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
+  // airtable-defined states
   const [globalCss, setGlobalCss] = useState("");
+  const [faqs, setFaqs] = useState([]);
+  const [about, setAbout] = useState("");
+  const [instagram, setInstagram] = useState("@keith _lafuente");
+  const [email, setEmail] = useState("keithlafuente@gmail.com");
+  const [favicon, setFavicon] = useState("🐚");
 
   useEffect(() => {
     // Fetch all products in your shop
@@ -137,7 +143,17 @@ export default function App() {
           console.error(err);
           return;
         }
-        console.log(records);
+        const _faqs = [];
+        records.forEach(function (record) {
+          const question = record.get('Question');
+          const answer = record.get('Answer');
+          if (question && answer)
+            _faqs.push({
+              "question": question,
+              "answer": answer
+            });
+        });
+        setFaqs(_faqs);
       });
 
     // GET ABOUT Content From Airtable
@@ -148,7 +164,14 @@ export default function App() {
           console.error(err);
           return;
         }
-        console.log(records);
+        records.forEach(function (record) {
+          const key = record.get("Key");
+          const value = record.get("Value");
+          if (key === "about") setAbout(value);
+          else if (key === "instagram") setInstagram(value);
+          else if (key === "email") setEmail(value);
+          else if (key === "favicon") setFavicon(value);
+        });
       });
 
   }, []);
@@ -179,7 +202,7 @@ export default function App() {
     <>
       <Helmet>
         <title>Keith Lafuente</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐚</text></svg>" sizes="16x16" />
+        <link rel="icon" href={`data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>${favicon}</text></svg>`} sizes="16x16" />
       </Helmet>
       <GlobalStyles globalCss={globalCss} />
       <HashRouter basename='/'>
@@ -215,13 +238,17 @@ export default function App() {
               <Route
                 path="about"
                 element={
-                  <About />
+                  <About
+                    about={about}
+                    instagram={instagram}
+                    email={email}
+                  />
                 }
               />
               <Route
                 path="faq"
                 element={
-                  <Faq />
+                  <Faq faqs={faqs} />
                 }
               />
               <Route

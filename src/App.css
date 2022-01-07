@@ -231,6 +231,8 @@ footer > div {
 
 .menu-link {
   margin-bottom: 5px;
+  color: var(--menu-text-color);
+  text-decoration: none;
 }
 
 .menu-link > a {
@@ -357,6 +359,40 @@ footer > div {
   background: #fff;
   padding: 100px 5%;
   color: var(--detail-text-color);
+}
+
+.faq{
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.faq-question{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.faq-answer {
+  margin-bottom: 30px;
+}
+
+.about-container {
+  padding: 30px;
+}
+
+.about-text {
+  margin-bottom: 30px;
+}
+
+.email {
+  margin-bottom: 5px;
+}
+
+.ig-link {
+  color: var(--global-text-color);
+  text-decoration: none;
 }
 
 @media (max-width: 414px) {
