@@ -108,31 +108,10 @@ export default function App() {
       apiKey: 'keyCVfnd8GGLw029l', // a read-only key
     });
     var base = Airtable.base('appUHQ9x9G0OAVdwX');
-    // base('Variables')
-    //   .select({
-    //     view: 'Grid view',
-    //   })
-    //   .firstPage(function (err, records) {
-    //     if (err) {
-    //       console.error(err);
-    //       return;
-    //     }
-    //     records.forEach(function (record) {
-    //       let backgroundImages = record.get('Background Image');
-    //       let menuColor = record.get('Menu Color');
-    //       let cartColor = record.get('Cart Color');
-    //       if (menuColor) setMenuColor(menuColor);
-    //       if (cartColor) setCartColor(cartColor);
-    //       if (backgroundImages.length > 0)
-    //         setBackgroundImage(backgroundImages[0].url);
-    //     });
-    //   });
 
-
+    // GET CSS Variables from Airtable
     base('Design')
-      .select({
-        view: 'Grid view',
-      })
+      .select({ view: 'Grid view' })
       .firstPage(function (err, records) {
         if (err) {
           console.error(err);
@@ -147,8 +126,29 @@ export default function App() {
           if (key && image && image.length > 0) cssVars.push(`${key + "-image"}: url(${image[0].url});`);
         });
         const cssString = cssVars.join("\n");
-        console.log(cssVars)
         setGlobalCss(cssString);
+      });
+
+    // GET FAQ Content From Airtable
+    base('Faq')
+      .select({ view: 'Grid view' })
+      .firstPage(function (err, records) {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        console.log(records);
+      });
+
+    // GET ABOUT Content From Airtable
+    base('About')
+      .select({ view: 'Grid view' })
+      .firstPage(function (err, records) {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        console.log(records);
       });
 
   }, []);
