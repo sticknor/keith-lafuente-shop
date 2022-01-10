@@ -23,7 +23,7 @@ body {
   bottom: 0px;
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 /* Nav */
@@ -102,6 +102,11 @@ nav {
   display: block;
   color: black;
   color: var(--card-text-color);
+  font-size: 1em;
+}
+.detail-card .card-title,
+.detail-card .card-price {
+  font-size: 1.4em;
 }
 .card-price {
   position: absolute;
@@ -111,6 +116,7 @@ nav {
   text-align: center;
   color: black;
   color: var(--card-text-color);
+  font-size: 1.1em;
 }
 .card-sold-out {
   top: 81.5%;
@@ -132,6 +138,7 @@ nav {
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
+  min-height: calc(100vh - 125px - 160px);
 }
 
 /* Footer */
@@ -140,8 +147,9 @@ footer {
   flex-direction: row;
   min-height: 100px;
   padding: 30px;
-  border-top: 1px solid #828282;
+  border-top: 1px solid #c4c4c4;
   color: var(--global-footer-links-color);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .footer-link {
@@ -287,7 +295,7 @@ footer > div {
   text-align: center;
   text-decoration: none;
   padding: 10px 0px;
-  margin-top: 50px;
+  margin-top: 60px;
   color: var(--checkout-button-text-color);
 }
 
@@ -309,7 +317,8 @@ footer > div {
   background-color: var(--cart-bg-color);
   transition: width 0.5s;
   z-index: 100000;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   color: var(--cart-text-color)
 }
 
@@ -361,11 +370,39 @@ footer > div {
   color: var(--detail-text-color);
 }
 
+.info-page-bg {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
 .faq{
   display: flex;
   flex-direction: column;
   padding: 30px;
+  min-height: calc(100vh - 185px - 160px);
+  font-size: 18px;
+  align-items: center;
 }
+
+.faq-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.faq-content {
+  padding: 30px;
+  border-radius: 10px;
+  width: 70%;
+  border-top: 1px solid #c4c4c4;
+  background: rgba(255, 255, 255, 0.5);
+}
+
 
 .faq-question{
   display: flex;
@@ -380,6 +417,25 @@ footer > div {
 
 .about-container {
   padding: 30px;
+  min-height: calc(100vh - 185px - 160px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.about-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.about-content {
+  padding: 30px;
+  border-radius: 10px;
+  width: 70%;
+  border-top: 1px solid #c4c4c4;
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .about-text {
@@ -402,6 +458,10 @@ footer > div {
 
   .detail-right-col {
     top: 100vh;
+  }
+
+  footer {
+    flex-direction: column;
   }
 }
 
@@ -435,6 +495,62 @@ footer > div {
   font-weight: bold;
   color: var(--detail-add-to-bag-color);
   opacity: 0.3;
+}
+
+.cart-products-container {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0px 10px 0px;
+  border-bottom: 1px solid var(--cart-text-color);
+}
+
+.cart-product {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 0px;
+}
+
+.cart-product-remove {
+  text-decoration: underline;
+}
+
+.cart-product-info {
+  display: flex;
+  flex-direction: row;
+  width: 100px;
+}
+
+.cart-product-image {
+  max-width: 80px;
+  width: 100%;
+  margin-right: 10px;
+}
+
+.cart-product-title {
+  max-width: 100px;
+  margin-bottom: 10px;
+}
+
+.cart-product-price {
+
+}
+
+.cart-product-quantity {
+}
+
+.subtotal {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.checkout-note {
+  margin-top: 10px;
+  text-align: center;
+  width: 100%;
 }
 
 .product-card {

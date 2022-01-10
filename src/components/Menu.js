@@ -26,7 +26,11 @@ function Menu(props) {
             );
           })}
           <div className="menu-divider" />
-          <Link to="/about" className="menu-link">contact</Link>
+          <Link to="/about" className="menu-link">about</Link>
+          <Link to="/faq" className="menu-link">faq</Link>
+          <a href="https://wayawaya.co/" target="_blank" rel="noreferrer" className='menu-link'>
+            stockists
+          </a>
         </div>
       </div>
       {/* Menu cancel area */}

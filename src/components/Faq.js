@@ -9,18 +9,21 @@ function Faq(props) {
 
   return (
     <div className="faq">
-      {faqs.map((faq, index) => {
-        return (
-          <div key={index}>
-            <div className="faq-question">
-              {faq.question}
+      <div className="faq-content">
+        <div className="faq-title">faq</div>
+        {faqs.map((faq, index) => {
+          return (
+            <div key={index}>
+              <div className="faq-question">
+                {faq.question}
+              </div>
+              <div className="faq-answer">
+                {faq.answer}
+              </div>
             </div>
-            <div className="faq-answer">
-              {faq.answer}
-            </div>
-          </div>
-        )
-      })}
+          )
+        })}
+      </div>
     </div>
   );
 }

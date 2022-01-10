@@ -13,14 +13,27 @@ function Cart(props) {
   } = props;
 
   const [cartProducts, setCartProducts] = useState([]);
+  const [subtotal, setSubtotal] = useState(undefined);
+
+  // Create our number formatter.
+  var formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+
+    // These options are needed to round to whole numbers if that's what you want.
+    //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+    //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+  });
+
+
 
   useEffect(() => {
     // Fetch all products in your cart
     if (checkoutID && shopClient) {
       shopClient.checkout.fetch(checkoutID).then((_checkout) => {
-        // setCartProducts(_checkout.lineItems);
-        console.log(_checkout);
-        setCartProducts([]);
+        setCartProducts(_checkout.lineItems);
+        setSubtotal(_checkout.lineItemsSubtotalPrice.amount);
+        // setCartProducts([]);
       });
     }
   }, []);
@@ -35,6 +48,8 @@ function Cart(props) {
         });
     }
   };
+
+  console.log(shopClient)
 
   return (
     <>
@@ -56,33 +71,58 @@ function Cart(props) {
         >
           <div>bag</div>
         </div>
-        <div>
+        <div className="cart-products-container">
           {cartProducts.map((lineItem, index) => {
             return (
-              <div key={index}>
-                <div>{lineItem.title}</div>
-                <div>${lineItem.variant.price}</div>
-                Buy now button
-                <div
-                  style={{ cursor: 'pointer', fontWeight: 'bold' }}
-                  onClick={() => {
-                    removeFromCart(lineItem.id);
-                  }}
-                >
-                  Remove from cart
+              <div key={index} className="cart-product">
+                <div className="cart-product-info">
+                  <img
+                    alt={lineItem.title}
+                    src={lineItem.variant.image.src}
+                    className="cart-product-image"
+                  />
+                  <div>
+                    <div className="cart-product-title">
+                      {lineItem.title}
+                      {(lineItem.variant && lineItem.variant.title !== 'Default Title') ? ` (${lineItem.variant.title})` : ''}
+                    </div>
+                    <div
+                      className="cart-product-remove"
+                      style={{ cursor: 'pointer', fontWeight: 'bold' }}
+                      onClick={() => {
+                        removeFromCart(lineItem.id);
+                      }}
+                    >
+                      remove
+                    </div>
+                  </div>
                 </div>
-                <img
-                  alt={lineItem.title}
-                  style={{ width: 300 }}
-                  src={lineItem.variant.image.src}
-                />
+                <div className="cart-product-quantity">{lineItem.quantity}</div>
+                <div>{formatter.format(lineItem.variant.price)}</div>
               </div>
             );
           })}
         </div>
-        <a href={checkoutURL} target={'_blank'} rel="noreferrer" className={'checkoutButton'}>
-          CHECKOUT
-        </a>
+        {cartProducts.length > 0 ? (
+          <>
+            <div className="subtotal">
+              subtotal
+              <div>{formatter.format(subtotal)}</div>
+            </div>
+            <a href={checkoutURL} target={'_blank'} rel="noreferrer" className={'checkoutButton'}>
+              CHECKOUT
+            </a>
+            <div className="checkout-note">
+              {`shipping & taxes calculated at checkout`}
+            </div>
+          </>) : (
+          <>
+            <div className="subtotal">
+              empty
+            </div>
+          </>
+        )
+        }
       </div>
     </>
   );

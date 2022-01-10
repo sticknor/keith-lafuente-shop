@@ -15,6 +15,7 @@ function Detail(props) {
     shopClient,
     checkoutID,
     updateShopClient,
+    openCart,
   } = props;
 
   const [imageIndex, setImageIndex] = useState(0);
@@ -23,6 +24,7 @@ function Detail(props) {
   const [prevEnabled, setPrevEnabled] = useState(false);
   const [nextEnabled, setNextEnabled] = useState(false);
   const [addToBagEnabled, setAddToBagEnabled] = useState(true);
+  const [addToBagAnimating, setAddToBagAnimating] = useState(false);
 
   useEffect(() => {
     for (var _product of products) {
@@ -51,6 +53,15 @@ function Detail(props) {
       setNextEnabled(imageIndex + 1 < product.images.length);
     }
   }, [product, imageIndex]);
+
+  const addToCartWithAnimation = (productID) => {
+    setAddToBagAnimating(true);
+    addToCart(productID)
+    setTimeout(() => {
+      setAddToBagAnimating(false);
+      openCart();
+    }, 1000);
+  }
 
   const addToCart = (productID) => {
     const lineItemsToAdd = [
@@ -143,15 +154,21 @@ function Detail(props) {
             </select>
           </div>
         }
-        <div
-          className={addToBagEnabled ? "add-to-bag-button detail-section" : "add-to-bag-button-disabled detail-section"}
-          onClick={() => {
-            addToCart(product.variants[variantIndex].id);
-          }}
-        >
-          {' '}
-          {addToBagEnabled ? "Add to bag" : "Sold Out"}
-        </div>
+        {addToBagAnimating ?
+          <div className={"add-to-bag-button-disabled detail-section"}>adding</div>
+          : (
+            <div
+              className={addToBagEnabled ? "add-to-bag-button detail-section" : "add-to-bag-button-disabled detail-section"}
+              onClick={() => {
+                addToCartWithAnimation(product.variants[variantIndex].id);
+              }}
+            >
+              {' '}
+              {addToBagEnabled ? "Add to bag" : "Sold Out"}
+            </div>
+          )
+        }
+
       </div>
     </>
   );
@@ -162,6 +179,7 @@ Detail.propTypes = {
   shopClient: PropTypes.object,
   checkoutID: PropTypes.string,
   updateShopClient: PropTypes.func,
+  openCart: PropTypes.func
 }
 
 export default Detail;

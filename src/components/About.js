@@ -1,6 +1,6 @@
 // React
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 function About(props) {
 
@@ -12,15 +12,18 @@ function About(props) {
 
   return (
     <div className="about-container">
-      <div className='about-text'>
-        {about}
+      <div className="about-content">
+        <div className="about-title">about</div>
+        <div className='about-text'>
+          {about}
+        </div>
+        <div className='email'>
+          {email}
+        </div>
+        <a className="ig-link" target="_blank" rel="noreferrer" href={`https://instagram.com/${instagram}`}>
+          @{instagram}
+        </a>
       </div>
-      <div className='email'>
-        {email}
-      </div>
-      <a className="ig-link" target="_blank" rel="noreferrer" href={`https://instagram.com/${instagram}`}>
-        @{instagram}
-      </a>
     </div>
   );
 }
