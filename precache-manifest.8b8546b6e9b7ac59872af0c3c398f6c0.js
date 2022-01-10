@@ -32,7 +32,7 @@ self.__precacheManifest = [
     "url": "/keith-lafuente-shop/static/media/keith_logo.0aaafbb1.svg"
   },
   {
-    "revision": "dfce391df041f0b1543ae703235b883a",
+    "revision": "ff1e5e57cdd3870c47f8c887143d7c2b",
     "url": "/keith-lafuente-shop/index.html"
   }
 ];
