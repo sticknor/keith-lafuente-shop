@@ -91,7 +91,7 @@ export default function App() {
       shopClient.checkout.fetch(checkoutID).then((checkout) => {
         if (checkout === null) {
           // cart is invalid
-          createNewCart();
+          createNewCart(shopClient);
         } else {
           // cart is valid, get size
           var _cartSize = 0;
@@ -104,7 +104,7 @@ export default function App() {
       });
     } else {
       // no saved cart
-      createNewCart();
+      createNewCart(shopClient);
     }
 
     // Get airtable variables
@@ -186,7 +186,7 @@ export default function App() {
     }
   `;
 
-  const createNewCart = () => {
+  const createNewCart = (shopClient) => {
     shopClient.checkout.create().then((checkout) => {
       setCheckoutID(checkout.id);
       setCheckoutURL(checkout.webUrl);

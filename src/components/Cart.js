@@ -49,8 +49,6 @@ function Cart(props) {
     }
   };
 
-  console.log(shopClient)
-
   return (
     <>
       {/* Menu button (shell) */}
