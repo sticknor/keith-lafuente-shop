@@ -130,6 +130,44 @@ function Detail(props) {
         {nextEnabled && (
           <div className={'next-button'} onClick={handleNextClick}></div>
         )}
+        <div className="detail-right-col-mobile">
+          <div className="menu-divider" />
+          <div className="detail-section" style={{ fontWeight: 600 }}>
+            {product.title}
+          </div>
+          <div className="detail-section">{product.description}</div>
+          {product.variants.length <= 1 &&
+            <div className="detail-section">${product.variants[variantIndex].price}</div>
+          }
+          {product.variants.length > 1 &&
+            <div className="detail-variants">
+              <select value={variantIndex} onChange={handleChangeVariant}>
+                {product.variants.map((variant, index) => {
+                  if (variant.available) {
+                    return <option value={index} key={index}>{variant.title} - ${variant.price}</option>
+                  } else {
+                    return <option disabled value={index} key={index}>{variant.title} (sold out)</option>
+                  }
+                })}
+              </select>
+            </div>
+          }
+          {addToBagAnimating ?
+            <div className={"add-to-bag-button-disabled detail-section"}>adding</div>
+            : (
+              <div
+                className={addToBagEnabled ? "add-to-bag-button detail-section" : "add-to-bag-button-disabled detail-section"}
+                onClick={() => {
+                  addToCartWithAnimation(product.variants[variantIndex].id);
+                }}
+              >
+                {' '}
+                {addToBagEnabled ? "Add to bag" : "Sold Out"}
+              </div>
+            )
+          }
+
+        </div>
       </div>
 
       <div className="detail-right-col">

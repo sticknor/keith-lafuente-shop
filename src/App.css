@@ -106,7 +106,7 @@ nav {
 }
 .detail-card .card-title,
 .detail-card .card-price {
-  font-size: 1.4em;
+  font-size: 1.3em;
 }
 .card-price {
   position: absolute;
@@ -357,6 +357,10 @@ footer > div {
   background-size: cover;
   background-color: var(--detail-bg-color);
   background-image: var(--detail-bg-image);
+}
+
+.detail-right-col-mobile {
+  display: none;
 }
 
 .detail-right-col {
@@ -613,4 +617,28 @@ footer > div {
   /* background-color: rgba(255, 255, 255, 0.5); */
   cursor: e-resize;
   user-select: none;
+}
+
+@media (max-width: 750px) {
+  .detail-right-col {
+    display: none;
+  }
+
+  .detailLeftCol {
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .detail-card .card-title,
+  .detail-card .card-price {
+    font-size: 1.2em;
+  }
+
+  .detail-right-col-mobile {
+    display: block;
+    background: #fff;
+    padding: 10px 5% 30px 5%;
+    color: var(--detail-text-color);
+  }
 }
