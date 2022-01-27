@@ -22,9 +22,6 @@ import Footer from './components/Footer';
 import SearchBar from './components/SearchBar';
 import ScrollToTop from './components/ScrollToTop';
 
-// Images
-import Logo from './assets/keith_logo.svg';
-
 // Style
 import './App.css';
 
@@ -305,7 +302,7 @@ export default function App() {
 
           {/* LOGO */}
           <Link to="/" className="logo">
-            <img src={Logo} alt="Logo" />
+            <div />
           </Link>
 
           {/* SEARCH */}

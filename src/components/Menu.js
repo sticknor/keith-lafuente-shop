@@ -2,7 +2,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import Shell from './../assets/shell.png';
 
 function Menu(props) {
   const { onClose, onOpen, open, categories } = props;
@@ -11,7 +10,6 @@ function Menu(props) {
     <>
       {/* Menu button (shell) */}
       <div className="menu-button" onClick={open ? onClose : onOpen}>
-        <img src={Shell} alt="Menu" />
         <div className="menu-button-text">Menu</div>
       </div>
 

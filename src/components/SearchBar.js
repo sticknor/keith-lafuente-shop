@@ -2,9 +2,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-// Images
-import SearchIcon from './../assets/search_icon.svg';
-
 export default function SearchBar() {
 
     const navigate = useNavigate();
@@ -32,7 +29,7 @@ export default function SearchBar() {
                     <button type="reset" onClick={() => { setSearchQuery("") }}>&times;</button>
                 </form>
             }
-            <img src={SearchIcon} alt="search" onClick={handleClickSearch} />
+            <div onClick={handleClickSearch} />
         </div>
     );
 }
