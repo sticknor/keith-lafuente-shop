@@ -10,23 +10,23 @@ import FooterShell3 from './../assets/footer_shell_3.png';
 export default function Footer() {
     return (
         <footer>
-            <img src={FooterShape} className='footer-shape' />
+            <img src={FooterShape} alt="" className='footer-shape' />
             <div className="footer-name">keith lafuente 2021</div>
             <Link to="/about" className='footer-link footer-link-1'>
-                <img src={FooterShell1} />
+                <img src={FooterShell1} alt="" />
                 <div>
                     about
                 </div>
             </Link>
 
             <a href="https://wayawaya.co/" target="_blank" rel="noreferrer" className='footer-link footer-link-2'>
-                <img src={FooterShell2} />
+                <img src={FooterShell2} alt="" />
                 <div>
                     stocklists
                 </div>
             </a>
             <Link to="/faq" className='footer-link footer-link-3'>
-                <img src={FooterShell3} />
+                <img src={FooterShell3} alt="" />
                 <div>
                     faq
                 </div>

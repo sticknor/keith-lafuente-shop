@@ -49,7 +49,7 @@ function Cart(props) {
   const cartSize = cartProducts.map((product) => { return product.quantity }).reduce(sum, 0);
   const bagIcon = (
     <div className="bag-icon">
-      <img src={BagIcon} />
+      <img src={BagIcon} alt="" />
       <div className="cart-size">{cartSize}</div>
     </div>
   );
