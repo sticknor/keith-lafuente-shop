@@ -51,7 +51,7 @@ function Shop(props) {
 
   return (
     <div className="products-grid">
-      {filteredProducts.length === 0 && <div>no results</div>}
+      {!(query === "" || query === undefined) && filteredProducts.length === 0 && <div>no results</div>}
       {filteredProducts.map((product, index) => {
         return (
           <Link key={index} to={`/product/${product.handle}`}>
