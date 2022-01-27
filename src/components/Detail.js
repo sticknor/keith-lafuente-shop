@@ -2,6 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types'
 import { useParams } from 'react-router-dom';
+
+// Gesture
+import { useSwipeable } from 'react-swipeable';
+
 // Components
 import Card from './Card';
 // Assets
@@ -21,8 +25,6 @@ function Detail(props) {
   const [imageIndex, setImageIndex] = useState(0);
   const [product, setProduct] = useState(null);
   const [variantIndex, setVariantIndex] = useState(0);
-  const [prevEnabled, setPrevEnabled] = useState(false);
-  const [nextEnabled, setNextEnabled] = useState(false);
   const [addToBagEnabled, setAddToBagEnabled] = useState(true);
   const [addToBagAnimating, setAddToBagAnimating] = useState(false);
 
@@ -48,9 +50,6 @@ function Detail(props) {
         const img = new Image();
         img.src = _image.src;
       });
-
-      setPrevEnabled(imageIndex - 1 >= 0);
-      setNextEnabled(imageIndex + 1 < product.images.length);
     }
   }, [product, imageIndex]);
 
@@ -83,22 +82,32 @@ function Detail(props) {
   }
 
   const handlePrevClick = () => {
-    setImageIndex(imageIndex - 1);
-    setPrevEnabled(imageIndex - 1 >= 0);
-    setNextEnabled(imageIndex + 1 < product.images.length);
+    if (product.images.length === 1) return;
+    setImageIndex(((imageIndex + product.images.length) - 1) % product.images.length);
   };
 
   const handleNextClick = () => {
-    setImageIndex(imageIndex + 1);
-    setPrevEnabled(imageIndex - 1 >= 0);
-    setNextEnabled(imageIndex + 1 < product.images.length);
+    if (product.images.length === 1) return;
+    setImageIndex((imageIndex + 1) % product.images.length);
   };
 
+  const handlers = useSwipeable({
+    onSwipedLeft: handleNextClick,
+    onSwipedRight: handlePrevClick,
+    config: {
+      delta: 2,                            // min distance(px) before a swipe starts. *See Notes*
+      preventDefaultTouchmoveEvent: true,  // call e.preventDefault *See Details*
+      trackTouch: true,                     // track touch input
+      trackMouse: false,                    // track mouse input
+    }
+  });
+
   if (product == null) return <div>loading...</div>;
+
   return (
     <>
       <div className="detailLeftCol" >
-        <div className="detail-card">
+        <div className="detail-card" {...handlers} onClick={handleNextClick}>
           <Card
             title={product.title}
             image={product.images[imageIndex]}
@@ -124,12 +133,6 @@ function Detail(props) {
             }
           </div>
         </div>
-        {prevEnabled && (
-          <div className={'prev-button'} onClick={handlePrevClick}></div>
-        )}
-        {nextEnabled && (
-          <div className={'next-button'} onClick={handleNextClick}></div>
-        )}
         <div className="detail-right-col-mobile">
           <div className="menu-divider" />
           <div className="detail-section" style={{ fontWeight: 600 }}>

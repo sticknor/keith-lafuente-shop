@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
+// Images
+import BagIcon from './../assets/bag_icon.svg';
+
 function Cart(props) {
   const {
     shopClient,
@@ -19,13 +22,7 @@ function Cart(props) {
   var formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
-
-    // These options are needed to round to whole numbers if that's what you want.
-    //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
-    //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
   });
-
-
 
   useEffect(() => {
     // Fetch all products in your cart
@@ -33,7 +30,6 @@ function Cart(props) {
       shopClient.checkout.fetch(checkoutID).then((_checkout) => {
         setCartProducts(_checkout.lineItems);
         setSubtotal(_checkout.lineItemsSubtotalPrice.amount);
-        // setCartProducts([]);
       });
     }
   }, []);
@@ -49,11 +45,23 @@ function Cart(props) {
     }
   };
 
+  const sum = (previousValue, currentValue) => previousValue + currentValue;
+  const cartSize = cartProducts.map((product) => { return product.quantity }).reduce(sum, 0);
+  const bagIcon = (
+    <div className="bag-icon">
+      <img src={BagIcon} />
+      <div className="cart-size">{cartSize}</div>
+    </div>
+  );
+
   return (
     <>
       {/* Menu button (shell) */}
       <div className="cart-button" onClick={open ? onClose : onOpen}>
-        {open ? 'close' : 'bag'}
+        <>
+          {open && 'close'}
+          {!open && bagIcon}
+        </>
       </div>
 
       {open && <div className={'cartCancelArea'} onClick={onClose} />}
@@ -67,7 +75,7 @@ function Cart(props) {
             justifyContent: 'space-between',
           }}
         >
-          <div>bag</div>
+          {bagIcon}
         </div>
         <div className="cart-products-container">
           {cartProducts.map((lineItem, index) => {

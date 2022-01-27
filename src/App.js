@@ -18,33 +18,34 @@ import Detail from './components/Detail';
 import About from './components/About';
 import Faq from './components/Faq';
 import Menu from './components/Menu';
+import Footer from './components/Footer';
+import SearchBar from './components/SearchBar';
+import ScrollToTop from './components/ScrollToTop';
 
-// import Shell from './assets/shell.png';
+// Images
 import Logo from './assets/keith_logo.svg';
-// import CartIcon from './assets/shopping_bag_icon.svg';
 
 // Style
 import './App.css';
 
 export default function App() {
-  const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState({});
 
   // Site-Wide State
+  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState({});
   const [shopClientTimestamp, setShopClientTimestamp] = useState(Date.now());
   const [shopClient, setShopClient] = useState(undefined);
+  const [cartSize, setCartSize] = useState(undefined);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
   const [checkoutID, setCheckoutID] = useState(
     localStorage.getItem('checkoutID'),
   );
   const [checkoutURL, setCheckoutURL] = useState(
     localStorage.getItem('checkoutURL'),
   );
-  const [cartSize, setCartSize] = useState(undefined);
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isCartOpen, setIsCartOpen] = useState(false);
-
-  // airtable-defined states
+  // Airtable vars
   const [globalCss, setGlobalCss] = useState("");
   const [faqs, setFaqs] = useState([]);
   const [about, setAbout] = useState("");
@@ -52,6 +53,7 @@ export default function App() {
   const [email, setEmail] = useState("keithlafuente@gmail.com");
   const [favicon, setFavicon] = useState("🐚");
 
+  // SHOPIFY CONFIG
   useEffect(() => {
     // Fetch all products in your shop
     if (shopClient) {
@@ -79,7 +81,9 @@ export default function App() {
 
   useEffect(() => {
     const shopClient = Client.buildClient({
+      // eslint-disable-next-line no-undef
       domain: process.env.REACT_APP_SHOPIFY_DOMAIN,
+      // eslint-disable-next-line no-undef
       storefrontAccessToken: process.env.REACT_APP_SHOPIFY_ACCESS_TOKEN,
     });
     setShopClient(shopClient);
@@ -107,7 +111,10 @@ export default function App() {
       createNewCart(shopClient);
     }
 
-    // Get airtable variables
+
+
+
+    // AIRTABLE CONTENT
     var Airtable = require('airtable');
     Airtable.configure({
       endpointUrl: 'https://api.airtable.com',
@@ -115,7 +122,7 @@ export default function App() {
     });
     var base = Airtable.base('appUHQ9x9G0OAVdwX');
 
-    // GET CSS Variables from Airtable
+    // CSS Variables
     base('Design')
       .select({ view: 'Grid view' })
       .firstPage(function (err, records) {
@@ -131,11 +138,12 @@ export default function App() {
           if (key && color) cssVars.push(`${key + "-color"}: ${color};`);
           if (key && image && image.length > 0) cssVars.push(`${key + "-image"}: url(${image[0].url});`);
         });
+        console.log(cssVars);
         const cssString = cssVars.join("\n");
         setGlobalCss(cssString);
       });
 
-    // GET FAQ Content From Airtable
+    // FAQ
     base('Faq')
       .select({ view: 'Grid view' })
       .firstPage(function (err, records) {
@@ -156,7 +164,7 @@ export default function App() {
         setFaqs(_faqs);
       });
 
-    // GET ABOUT Content From Airtable
+    // ABOUT
     base('About')
       .select({ view: 'Grid view' })
       .firstPage(function (err, records) {
@@ -180,12 +188,6 @@ export default function App() {
     setShopClientTimestamp(Date.now());
   };
 
-  const GlobalStyles = createGlobalStyle`
-    body {
-      ${props => (props.globalCss)}
-    }
-  `;
-
   const createNewCart = (shopClient) => {
     shopClient.checkout.create().then((checkout) => {
       setCheckoutID(checkout.id);
@@ -198,6 +200,14 @@ export default function App() {
     });
   }
 
+  // STYLE CONFIG
+  const GlobalStyles = createGlobalStyle`
+    body {
+      ${props => (props.globalCss)}
+    }
+  `;
+
+  // MARKUP 
   return (
     <>
       <Helmet>
@@ -206,7 +216,7 @@ export default function App() {
       </Helmet>
       <GlobalStyles globalCss={globalCss} />
       <HashRouter basename='/'>
-        <div>
+        <ScrollToTop>
           <div className="background" />
           <div className="page">
             <div className="pageContent">
@@ -226,6 +236,19 @@ export default function App() {
                 />
                 <Route
                   path="/collection/:id"
+                  element={
+                    <Shop
+                      key={shopClientTimestamp}
+                      shopClient={shopClient}
+                      checkoutID={checkoutID}
+                      updateShopClient={updateShopClient}
+                      products={products}
+                      categories={categories}
+                    />
+                  }
+                />
+                <Route
+                  path="/search/:query"
                   element={
                     <Shop
                       key={shopClientTimestamp}
@@ -267,24 +290,7 @@ export default function App() {
                 />
               </Routes>
             </div>
-            <footer>
-              <div>keith lafuente 2021</div>
-              <div>
-                <Link to="/about" className='footer-link'>
-                  about
-                </Link>
-              </div>
-              <div>
-                <Link to="/faq" className='footer-link'>
-                  faq
-                </Link>
-              </div>
-              <div>
-                <a href="https://wayawaya.co/" target="_blank" rel="noreferrer" className='footer-link'>
-                  stockists
-                </a>
-              </div>
-            </footer>
+            <Footer />
           </div>
 
           {/* MENU */}
@@ -305,6 +311,9 @@ export default function App() {
             <img src={Logo} alt="Logo" />
           </Link>
 
+          {/* SEARCH */}
+          <SearchBar />
+
           {/* CART */}
           <Cart
             key={shopClientTimestamp}
@@ -319,7 +328,7 @@ export default function App() {
             }}
             open={isCartOpen}
           />
-        </div >
+        </ScrollToTop>
       </HashRouter>
     </>
   );
