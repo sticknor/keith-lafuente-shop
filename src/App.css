@@ -85,6 +85,12 @@ nav {
   overflow: hidden;
   margin: 12px;
 }
+
+.card-graphic-overlay {
+  background-image: url('./assets/shop_card_default.png');
+  background-image: var(--card-design-image);
+}
+
 .card-image-underlay,
 .card-graphic-overlay,
 .card-text-overlay {
@@ -118,21 +124,21 @@ nav {
 }
 .card-price {
   position: absolute;
-  top: 83%;
+  top: 79%;
   width: 20%;
-  right: 20%;
+  right: 21%;
   text-align: center;
   color: black;
   color: var(--card-text-color);
   font-size: 1.1em;
 }
 .card-sold-out {
-  top: 81.5%;
+  top: 77.5%;
   white-space: pre-line;
 }
 .card-image-underlay {
   top: 6%;
-  height: 83%;
+  height: 80%;
   object-fit: cover;
 }
 .card-graphic-overlay {

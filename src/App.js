@@ -111,9 +111,6 @@ export default function App() {
       createNewCart(shopClient);
     }
 
-
-
-
     // AIRTABLE CONTENT
     var Airtable = require('airtable');
     Airtable.configure({

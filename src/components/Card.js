@@ -2,8 +2,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 
-// Assets
-import CardDefault from './../assets/shop_card_default.png';
 function Card(props) {
   const { title, image, price, sold } = props;
 
@@ -15,7 +13,7 @@ function Card(props) {
         style={{ width: '82%', left: '7%' }}
         src={image.src}
       />
-      <img alt={title || ""} className={'card-graphic-overlay'} src={CardDefault} />
+      <div alt={title || ""} className={'card-graphic-overlay'} />
       <div className={'card-text-overlay'}>
         <div className={'card-title'}>{title}</div>
         {sold ? (
@@ -32,7 +30,8 @@ Card.propTypes = {
   title: PropTypes.string,
   image: PropTypes.object,
   price: PropTypes.string,
-  sold: PropTypes.bool
+  sold: PropTypes.bool,
+  design: PropTypes.string
 }
 
 export default Card;
