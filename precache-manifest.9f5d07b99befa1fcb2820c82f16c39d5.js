@@ -1,27 +1,23 @@
 self.__precacheManifest = [
   {
-    "revision": "ea86eb2ac524d79e9b0c",
-    "url": "/keith-lafuente-shop/static/css/main.d961af5c.chunk.css"
+    "revision": "bf18f7e189a6df34ed72",
+    "url": "/keith-lafuente-shop/static/css/main.edccecab.chunk.css"
   },
   {
-    "revision": "ea86eb2ac524d79e9b0c",
-    "url": "/keith-lafuente-shop/static/js/main.09c45213.chunk.js"
+    "revision": "bf18f7e189a6df34ed72",
+    "url": "/keith-lafuente-shop/static/js/main.606d17f5.chunk.js"
   },
   {
-    "revision": "589dbe4fa815d7f48947",
-    "url": "/keith-lafuente-shop/static/js/runtime~main.a790cb7f.js"
+    "revision": "f3c4715663b830102911",
+    "url": "/keith-lafuente-shop/static/js/runtime~main.edb678a3.js"
   },
   {
-    "revision": "2bc5fa4b3fb40978ef76",
-    "url": "/keith-lafuente-shop/static/js/2.3e1ad11d.chunk.js"
+    "revision": "7c18e520666e99801fa8",
+    "url": "/keith-lafuente-shop/static/js/2.61592da9.chunk.js"
   },
   {
-    "revision": "4a574a78abb738b2e8d1",
-    "url": "/keith-lafuente-shop/static/js/3.30c51c5e.chunk.js"
-  },
-  {
-    "revision": "1f1fd608dfef603fbd3954fd95a9320e",
-    "url": "/keith-lafuente-shop/static/media/shop_card_default.1f1fd608.png"
+    "revision": "6c8ab2ff0612c111b6c4",
+    "url": "/keith-lafuente-shop/static/js/3.c3a377e7.chunk.js"
   },
   {
     "revision": "054d86a38192a0f2cac1b4f4ee7afa77",
@@ -52,7 +48,11 @@ self.__precacheManifest = [
     "url": "/keith-lafuente-shop/static/media/keith_logo.0aaafbb1.svg"
   },
   {
-    "revision": "3021f18a87026477b2572818205fdfef",
+    "revision": "1f1fd608dfef603fbd3954fd95a9320e",
+    "url": "/keith-lafuente-shop/static/media/shop_card_default.1f1fd608.png"
+  },
+  {
+    "revision": "426faa6d08c207eca12f067ef3c070cb",
     "url": "/keith-lafuente-shop/index.html"
   }
 ];
