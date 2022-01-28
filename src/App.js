@@ -17,6 +17,7 @@ import Cart from './components/Cart';
 import Detail from './components/Detail';
 import About from './components/About';
 import Faq from './components/Faq';
+import Stocklists from './components/Stocklists';
 import Template from './components/Template';
 import Menu from './components/Menu';
 import Footer from './components/Footer';
@@ -269,6 +270,12 @@ export default function App() {
                   path="faq"
                   element={
                     <Faq faqs={faqs} />
+                  }
+                />
+                <Route
+                  path="stocklists"
+                  element={
+                    <Stocklists />
                   }
                 />
                 <Route
