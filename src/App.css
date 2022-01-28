@@ -108,7 +108,7 @@ nav {
 }
 .card-title {
   position: absolute;
-  top: 8.5%;
+  top: 8%;
   left: 2%;
   width: 90%;
   text-align: center;
@@ -124,7 +124,7 @@ nav {
 }
 .card-price {
   position: absolute;
-  top: 79%;
+  top: 78.5%;
   width: 20%;
   right: 21%;
   text-align: center;
@@ -133,7 +133,7 @@ nav {
   font-size: 1.1em;
 }
 .card-sold-out {
-  top: 77.5%;
+  top: 76.7%;
   white-space: pre-line;
 }
 .card-image-underlay {
@@ -655,13 +655,6 @@ footer > div {
 .cart-product-title {
   max-width: 100px;
   margin-bottom: 10px;
-}
-
-.cart-product-price {
-
-}
-
-.cart-product-quantity {
 }
 
 .subtotal {
