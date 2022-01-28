@@ -8,7 +8,7 @@ function Stocklists() {
                     Stocklists
                 </div>
                 <div>
-                    <a style="color:var(--stocklists-link-color);" href='https://wayawaya.co/' target="_blank" rel='noreferrer noopener'>WAYAWAYA</a>
+                    <a style={{ color: var(--stocklists-link-color); }} href='https://wayawaya.co/' target="_blank" rel='noreferrer noopener'>WAYAWAYA</a>
                 </div>
             </div>
         </div>
