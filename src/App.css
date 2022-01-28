@@ -1,3 +1,7 @@
+.stocklist-link {
+  color: var(--stocklists-link-color);
+}
+
 body {
   font-family: 'Inconsolata', monospace;
   color: var(--global-text-color);
