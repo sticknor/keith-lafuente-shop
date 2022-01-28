@@ -17,6 +17,7 @@ import Cart from './components/Cart';
 import Detail from './components/Detail';
 import About from './components/About';
 import Faq from './components/Faq';
+import Template from './components/Template';
 import Menu from './components/Menu';
 import Footer from './components/Footer';
 import SearchBar from './components/SearchBar';
@@ -268,6 +269,12 @@ export default function App() {
                   path="faq"
                   element={
                     <Faq faqs={faqs} />
+                  }
+                />
+                <Route
+                  path="template"
+                  element={
+                    <Template />
                   }
                 />
                 <Route

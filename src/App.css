@@ -554,7 +554,7 @@ footer > div {
   margin-bottom: 30px;
 }
 
-.about-container {
+.about-container, .template-container {
   padding: 30px;
   min-height: calc(100vh - 185px - 160px);
   display: flex;
@@ -563,13 +563,13 @@ footer > div {
   font-size: 18px;
 }
 
-.about-title {
+.about-title, .template-title {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 30px;
 }
 
-.about-content {
+.about-content, .template-content {
   padding: 30px;
   border-radius: 10px;
   width: 70%;

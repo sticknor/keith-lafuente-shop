@@ -27,7 +27,7 @@ function Menu(props) {
           <Link to="/about" className="menu-link">about</Link>
           <Link to="/faq" className="menu-link">faq</Link>
           <a href="https://wayawaya.co/" target="_blank" rel="noreferrer" className='menu-link'>
-            stockists
+            stocklists
           </a>
         </div>
       </div>
