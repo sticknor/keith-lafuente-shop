@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "65b7a93a682fb9faea9f",
+    "revision": "c77ea256313820edac35",
     "url": "/static/css/main.fa8186c7.chunk.css"
   },
   {
-    "revision": "65b7a93a682fb9faea9f",
-    "url": "/static/js/main.c369b006.chunk.js"
+    "revision": "c77ea256313820edac35",
+    "url": "/static/js/main.34d31a81.chunk.js"
   },
   {
     "revision": "a7960e367067d313eda4",
@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/static/media/shop_card_default.1f1fd608.png"
   },
   {
-    "revision": "ff4b93b0ad47dc0118cfffeed0e3e7d9",
+    "revision": "6487a9a43010cc48fd2610fd095620e2",
     "url": "/index.html"
   }
 ];
