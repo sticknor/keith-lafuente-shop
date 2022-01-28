@@ -8,7 +8,7 @@ function Stocklists() {
                     Stocklists
                 </div>
                 <div>
-                    <a href='https://wayawaya.co/' target="_blank" rel='noreferrer noopener'>WAYAWAYA</a>
+                    <a className="stocklist-link" href='https://wayawaya.co/' target="_blank" rel='noreferrer noopener'>WAYAWAYA</a>
                 </div>
             </div>
         </div>
