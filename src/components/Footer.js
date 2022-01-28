@@ -12,11 +12,11 @@ export default function Footer() {
                     about
                 </div>
             </Link>
-            <a href="https://wayawaya.co/" target="_blank" rel="noreferrer" className='footer-link footer-link-2'>
+            <Link to="/stocklists" className='footer-link footer-link-2'>
                 <div>
                     stocklists
                 </div>
-            </a>
+            </Link>
             <Link to="/faq" className='footer-link footer-link-3'>
                 <div>
                     faq
