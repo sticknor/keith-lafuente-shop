@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/static/media/shop_card_default.1f1fd608.png"
   },
   {
-    "revision": "66d5bb9836f360cc52f2419eee480200",
+    "revision": "79ce04f4462b146e182e7cb2dee976cb",
     "url": "/index.html"
   }
 ];
