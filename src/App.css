@@ -674,6 +674,7 @@ footer > div {
 .product-card {
   width: 25vw;
   min-width: 350px;
+  max-width: 400px;
   position: relative;
 }
 
