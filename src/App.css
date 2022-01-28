@@ -200,8 +200,8 @@ footer {
   text-shadow: 0 0 3px var(--shell-button-text-shadow-color), 0 0 3px var(--shell-button-text-shadow-color), 0 0 5px var(--shell-button-text-shadow-color);
 }
 .footer-link-1 {
-  left: calc(50vw - (200px));
-  bottom: 0px;
+  left: calc(50vw - (170px));
+  bottom: 10px;
   background-image: var(--shell-button-about-image);
   background-size: contain;
   background-repeat: no-repeat;
@@ -222,8 +222,8 @@ footer {
   left: 15px;
 }
 .footer-link-3 {
-  left: calc(50vw + 80px);
-  bottom: 10px;
+  left: calc(50vw + 60px);
+  bottom: 15px;
   background-image: var(--shell-button-faq-image);
   background-size: contain;
   background-repeat: no-repeat;
@@ -314,7 +314,7 @@ footer > div {
   position: fixed;
   top: 30px;
   left: 30px;
-  z-index: 10001;
+  z-index: 10000;
   color: var(--global-header-links-color);
   background-image: var(--shell-button-menu-image);
   background-size: contain;
@@ -329,17 +329,6 @@ footer > div {
   transform: rotate(-20deg);
   text-shadow: 0 0 3px #ffffff, 0 0 3px #ffffff, 0 0 5px #ffffff;
   text-shadow: 0 0 3px var(--shell-button-text-shadow-color), 0 0 3px var(--shell-button-text-shadow-color), 0 0 5px var(--shell-button-text-shadow-color);
-}
-@media (max-width: 414px) {
-  .menu-button {
-    --button-width: 88px;
-  }
-  .menu-button-text {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    transform: rotate(-20deg);
-  }
 }
 
 .menu {
@@ -427,12 +416,7 @@ footer > div {
 .logo svg {
   shape-rendering: crispEdges;
 }
-@media (max-width: 414px) {
-  .logo,
-  .logo > div {
-    --image-width: 100px;
-  }
-}
+
 
 .checkoutButton {
   width: 100%;
@@ -480,18 +464,6 @@ footer > div {
   width: 400px;
   padding: 30px;
   padding-left: 200px;
-}
-@media (max-width: 500px) {
-  .cart {
-    background-color: var(--cart-bg-color);
-  }
-  .cart-open {
-    width: calc(100vw - 60px);
-    padding: 30px;
-  }
-  .cartCancelArea {
-    display: none;
-  }
 }
 
 .cart * {
@@ -616,19 +588,7 @@ footer > div {
   text-decoration: none;
 }
 
-@media (max-width: 414px) {
-  .detailLeftCol {
-    width: 100%;
-  }
 
-  .detail-right-col {
-    top: 100vh;
-  }
-
-  footer {
-    flex-direction: column;
-  }
-}
 
 .detail-section {
   margin-bottom: 20px;
@@ -758,7 +718,12 @@ footer > div {
   background-color: var(--detail-carousel-dots-color);
 }
 
-@media (max-width: 750px) {
+@media (max-width: 800px) {
+
+  .product-card {
+    min-width: 300px;
+  }
+
   .detail-right-col {
     display: none;
   }
@@ -779,5 +744,63 @@ footer > div {
     background: #fff;
     padding: 10px 5% 30px 5%;
     color: var(--detail-text-color);
+  }
+
+  .menu-button {
+    --button-width: 88px;
+  }
+  .menu-button-text {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    transform: rotate(-20deg);
+  }
+  .cart {
+    background: none;
+    background-color: var(--cart-bg-color);
+  }
+  .cart-open {
+    width: calc(100vw - 60px);
+    padding: 30px;
+  }
+  .cartCancelArea {
+    display: none;
+  }
+  
+}
+
+@media (max-width: 414px) {
+  footer {
+    transform: scale(0.8);
+    bottom: -15px;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 414px) {
+  
+  .menu-button {
+    --button-width: 70px;
+  }
+  .menu-button-text {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    transform: rotate(-20deg);
+    font-size: 12px;
+  }
+
+  .product-card {
+    min-width: 90vw;
+    overflow: hidden;
+  }
+
+  .logo,
+  .logo > div {
+    --image-width: 80px;
+  }
+
+  .page {
+    padding-top: 80px;
   }
 }
