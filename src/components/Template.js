@@ -2,9 +2,9 @@
 import React from 'react';
 function Template() {
     return (
-        <div className="about-container">
-            <div className="about-content">
-                <div className="about-title">
+        <div className="template-container">
+            <div className="template-content">
+                <div className="template-title">
                     PUT TITLE HERE
                 </div>
                 <div>
