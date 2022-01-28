@@ -279,6 +279,7 @@ footer > div {
   border: none;
   height: 30px;
   width: 30px;
+  color: 1px solid var(--global-header-links-color);
 }
 
 .cart-button {
