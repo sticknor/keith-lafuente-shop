@@ -9,6 +9,9 @@ Shop Item Order: <br>
 The shop order is now set to newest products first. 
 It accounts for when the product was `created`, not `edited`.
 
+Checkout: <br>
+Checkout takes shoppers to a Shopify checkout flow, where they will enter credit card, shipping, etc. Purchases and notifications are handled through Shopify. 
+
 
 # Edit Design
 
