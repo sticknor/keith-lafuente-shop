@@ -399,6 +399,7 @@ footer > div {
 }
 
 .logo {
+  background-color: var(--custom-background-color);
   z-index: 101;
   --image-width: 140px;
   height: 80px;
