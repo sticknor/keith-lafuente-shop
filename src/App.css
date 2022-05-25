@@ -508,7 +508,7 @@ footer > div {
   right: 0px;
   bottom: 0px;
   width: 30%;
-  background: #fff;
+  background: rgb(0 0 0 / 0%);
   padding: 100px 5%;
   color: var(--detail-text-color);
 }
