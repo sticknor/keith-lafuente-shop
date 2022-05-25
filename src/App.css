@@ -510,7 +510,6 @@ footer > div {
   width: 30%;
   background-color: var(--detail-col-color);
   background-image: var(--detail-col-image);
-  );
   background: linear-gradient(270deg, var(--detail-col-color) 0%, var(--detail-col-color) 80%, transparent 100%);
   transition: width 0.5s;
   z-index: 10000;
