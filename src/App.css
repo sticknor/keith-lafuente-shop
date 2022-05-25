@@ -751,11 +751,11 @@ footer > div {
     background-color: var(--detail-col-color);
     background-image: var(--detail-col-image);
     );
-    background: linear-gradient(0deg, var(--detail-col-color) 0%, var(--detail-col-color) 95%, transparent 100%);
+    background: linear-gradient(1deg, var(--detail-col-color) 0%, var(--detail-col-color) 95%, transparent 100%);
     transition: width 0.5s;
     z-index: 10000;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
     padding: 10px 5% 30px 5%;
     color: var(--detail-text-color);
   }
