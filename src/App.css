@@ -742,7 +742,8 @@ footer > div {
 
   .detail-right-col-mobile {
     display: block;
-    background: #fff;
+    background-color: var(--detail-col-color);
+    background-image: var(--detail-col-image);
     padding: 10px 5% 30px 5%;
     color: var(--detail-text-color);
   }
