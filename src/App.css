@@ -600,7 +600,39 @@ footer > div {
   text-decoration: none;
 }
 
+.filipino{
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  min-height: calc(100vh - 185px - 160px);
+  font-size: 18px;
+  align-items: center;
+}
 
+.filipino-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.filipino-content {
+  padding: 30px;
+  border-radius: 10px;
+  width: 70%;
+  border-top: 1px solid #c4c4c4;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.filipino-question {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.filipino-answer {
+  margin-bottom: 30px;
+}
 
 .detail-section {
   margin-bottom: 20px;
