@@ -548,8 +548,8 @@ footer > div {
   padding: 30px;
   border-radius: 10px;
   width: 70%;
-  border-top: 1px solid #c4c4c4;
-  background: rgba(255, 255, 255, 0.5);
+  border-top: 0px solid #c4c4c4;
+  background: rgba(255, 255, 255, 0);
 }
 
 
@@ -583,8 +583,8 @@ footer > div {
   padding: 30px;
   border-radius: 10px;
   width: 70%;
-  border-top: 1px solid #c4c4c4;
-  background: rgba(255, 255, 255, 0.5);
+  border-top: 0px solid #c4c4c4;
+  background: rgba(255, 255, 255, 0);
 }
 
 .about-text {
