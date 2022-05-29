@@ -17,7 +17,7 @@ import Cart from './components/Cart';
 import Detail from './components/Detail';
 import About from './components/About';
 import Faq from './components/Faq';
-import Stocklists from './components/Stocklists';
+import Stockists from './components/Stockists';
 import Template from './components/Template';
 import Menu from './components/Menu';
 import Footer from './components/Footer';
@@ -47,6 +47,7 @@ export default function App() {
   // Airtable vars
   const [globalCss, setGlobalCss] = useState("");
   const [faqs, setFaqs] = useState([]);
+  const [stockists, setStockists] = useState([]);
   const [about, setAbout] = useState("");
   const [instagram, setInstagram] = useState("@keith _lafuente");
   const [email, setEmail] = useState("keithlafuente@gmail.com");
@@ -178,6 +179,28 @@ export default function App() {
         });
       });
 
+    // ABOUT
+    base('Stockists')
+      .select({ view: 'Grid view' })
+      .firstPage(function (err, records) {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        const _stockists = [];
+        records.forEach(function (record) {
+          const name = record.get('Name');
+          const link = record.get('Link');
+          if (name && link)
+            _stockists.push({
+              "name": name,
+              "link": link
+            });
+        });
+        console.log(_stockists)
+        setStockists(_stockists);
+      });
+
   }, []);
 
   const updateShopClient = () => {
@@ -273,9 +296,9 @@ export default function App() {
                   }
                 />
                 <Route
-                  path="stocklists"
+                  path="stockists"
                   element={
-                    <Stocklists />
+                    <Stockists stockists={stockists} />
                   }
                 />
                 <Route

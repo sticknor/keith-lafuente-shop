@@ -26,7 +26,7 @@ function Menu(props) {
           <div className="menu-divider" />
           <Link to="/about" className="menu-link">about</Link>
           <Link to="/faq" className="menu-link">faq</Link>
-          <Link to="/stocklists" className="menu-link">stocklists</Link>
+          <Link to="/stockists" className="menu-link">stockists</Link>
         </div>
       </div>
       {/* Menu cancel area */}

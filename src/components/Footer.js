@@ -12,9 +12,9 @@ export default function Footer() {
                     about
                 </div>
             </Link>
-            <Link to="/stocklists" className='footer-link footer-link-2'>
+            <Link to="/stockists" className='footer-link footer-link-2'>
                 <div>
-                    stocklists
+                    stockists
                 </div>
             </Link>
             <Link to="/faq" className='footer-link footer-link-3'>
