@@ -18,6 +18,7 @@ import Detail from './components/Detail';
 import About from './components/About';
 import Faq from './components/Faq';
 import Stockists from './components/Stockists';
+import Filipino from './components/Filipino';
 import Template from './components/Template';
 import Menu from './components/Menu';
 import Footer from './components/Footer';
@@ -48,6 +49,7 @@ export default function App() {
   const [globalCss, setGlobalCss] = useState("");
   const [faqs, setFaqs] = useState([]);
   const [stockists, setStockists] = useState([]);
+  const [filipino, setFilipino] = useState([]);
   const [about, setAbout] = useState("");
   const [instagram, setInstagram] = useState("@keith _lafuente");
   const [email, setEmail] = useState("keithlafuente@gmail.com");
@@ -179,7 +181,7 @@ export default function App() {
         });
       });
 
-    // ABOUT
+    // STOCKISTS
     base('Stockists')
       .select({ view: 'Grid view' })
       .firstPage(function (err, records) {
@@ -197,8 +199,24 @@ export default function App() {
               "link": link
             });
         });
-        console.log(_stockists)
         setStockists(_stockists);
+      });
+
+    // FILIPINO
+    base('Filipino')
+      .select({ view: 'Grid view' })
+      .firstPage(function (err, records) {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        const _filipino = [];
+        records.forEach(function (record) {
+          const paragraph = record.get('Paragraph');
+          if (paragraph)
+            _filipino.push(paragraph);
+        });
+        setFilipino(_filipino);
       });
 
   }, []);
@@ -299,6 +317,12 @@ export default function App() {
                   path="stockists"
                   element={
                     <Stockists stockists={stockists} />
+                  }
+                />
+                <Route
+                  path="filipino"
+                  element={
+                    <Filipino filipino={filipino} />
                   }
                 />
                 <Route

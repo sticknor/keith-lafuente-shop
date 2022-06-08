@@ -2,22 +2,21 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 
-function Stockists(props) {
+function Filipino(props) {
 
     const {
-        stockists
+        filipino
     } = props;
-
 
     return (
         <div className="template-container">
             <div className="template-content">
                 <div className="template-title">
-                    stockists
+                    filipino
                 </div>
                 <div>
-                    {stockists.map((stockist, index) => {
-                        return <a key={index} className="stockist-link" href={stockist.link} target="_blank" rel='noreferrer noopener'>{stockist.name}</a>;
+                    {filipino.map((paragraph, index) => {
+                        return <p key={index}>{paragraph}</p>
                     })}
                 </div>
             </div>
@@ -25,8 +24,8 @@ function Stockists(props) {
     );
 }
 
-Stockists.propTypes = {
-    stockists: PropTypes.array
+Filipino.propTypes = {
+    filipino: PropTypes.array
 }
 
-export default Stockists;
+export default Filipino;
