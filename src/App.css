@@ -502,12 +502,21 @@ footer>div {
   width: 0px;
 }
 
+.detailContainer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--detail-col-color);
+}
+
 .detailLeftCol {
   position: fixed;
   top: 0px;
   left: 0px;
   bottom: 0px;
-  width: 60%;
+  width: 80%;
   z-index: 100;
   background-size: cover;
   background-color: var(--detail-bg-color);
@@ -526,14 +535,12 @@ footer>div {
   right: 0px;
   bottom: 0px;
   width: 30%;
-  background-color: var(--detail-col-color);
-  background-image: var(--detail-col-image);
-  background: linear-gradient(270deg, var(--detail-col-color) 0%, var(--detail-col-color) 80%, transparent 100%);
+  background: linear-gradient(to right, transparent, 10%, var(--detail-col-color), 40%, var(--detail-col-color));
   transition: width 0.5s;
   z-index: 10000;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 100px 5%;
+  padding: max(15vh, 100px) 5%;
   color: var(--detail-text-color);
 }
 
@@ -746,7 +753,8 @@ footer>div {
 .detail-card {
   max-width: calc(90vh * 0.65);
   margin: auto;
-  margin-top: 100px;
+  margin-top: max(15vh, 100px);
+  padding-right: 10%;
 }
 
 .carousel-dots {
@@ -783,6 +791,11 @@ footer>div {
     min-width: 300px;
   }
 
+  .detail-card {
+    padding-right: 0%;
+  }
+
+
   .detail-right-col {
     display: none;
   }
@@ -791,6 +804,9 @@ footer>div {
     width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .detail-card .card-title,
@@ -800,8 +816,7 @@ footer>div {
 
   .detail-right-col-mobile {
     display: block;
-    background-color: var(--detail-col-color);
-    background-image: var(--detail-col-image);
+    background: linear-gradient(to bottom, transparent, 10%, var(--detail-col-color), 40%, var(--detail-col-color));
     padding: 10px 5% 30px 5%;
     color: var(--detail-text-color);
   }

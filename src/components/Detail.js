@@ -105,7 +105,7 @@ function Detail(props) {
   if (product == null) return <div>loading...</div>;
 
   return (
-    <>
+    <div className="detailContainer">
       <div className="detailLeftCol" >
         <div className="detail-card" {...handlers} onClick={handleNextClick}>
           <Card
@@ -211,7 +211,7 @@ function Detail(props) {
         }
 
       </div>
-    </>
+    </div>
   );
 }
 

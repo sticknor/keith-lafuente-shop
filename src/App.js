@@ -274,78 +274,101 @@ export default function App() {
                 <Route
                   path="/collection/:id"
                   element={
-                    <Shop
-                      key={shopClientTimestamp}
-                      shopClient={shopClient}
-                      checkoutID={checkoutID}
-                      updateShopClient={updateShopClient}
-                      products={products}
-                      categories={categories}
-                    />
+                    <>
+                      <Shop
+                        key={shopClientTimestamp}
+                        shopClient={shopClient}
+                        checkoutID={checkoutID}
+                        updateShopClient={updateShopClient}
+                        products={products}
+                        categories={categories}
+                      />
+                      <Footer />
+                    </>
                   }
                 />
                 <Route
                   path="/search/:query"
                   element={
-                    <Shop
-                      key={shopClientTimestamp}
-                      shopClient={shopClient}
-                      checkoutID={checkoutID}
-                      updateShopClient={updateShopClient}
-                      products={products}
-                      categories={categories}
-                    />
+                    <>
+                      <Shop
+                        key={shopClientTimestamp}
+                        shopClient={shopClient}
+                        checkoutID={checkoutID}
+                        updateShopClient={updateShopClient}
+                        products={products}
+                        categories={categories}
+                      />
+                      <Footer />
+                    </>
                   }
                 />
                 <Route
                   path="about"
                   element={
-                    <About
-                      about={about}
-                      instagram={instagram}
-                      email={email}
-                    />
+                    <>
+                      <About
+                        about={about}
+                        instagram={instagram}
+                        email={email}
+                      />
+                      <Footer />
+                    </>
                   }
                 />
                 <Route
                   path="faq"
                   element={
-                    <Faq faqs={faqs} />
+                    <>
+                      <Faq faqs={faqs} />
+                      <Footer />
+                    </>
                   }
                 />
                 <Route
                   path="stockists"
                   element={
-                    <Stockists stockists={stockists} />
+                    <>
+                      <Stockists stockists={stockists} />
+                      <Footer />
+                    </>
                   }
                 />
                 <Route
                   path="filipino"
                   element={
-                    <Filipino filipino={filipino} />
+                    <>
+                      <Filipino filipino={filipino} />
+                      <Footer />
+                    </>
                   }
                 />
                 <Route
                   path="template"
                   element={
-                    <Template />
+                    <>
+                      <Template />
+                      <Footer />
+                    </>
                   }
                 />
                 <Route
                   path="/"
                   element={
-                    <Shop
-                      key={shopClientTimestamp}
-                      shopClient={shopClient}
-                      checkoutID={checkoutID}
-                      updateShopClient={updateShopClient}
-                      products={products}
-                    />
+                    <>
+                      <Shop
+                        key={shopClientTimestamp}
+                        shopClient={shopClient}
+                        checkoutID={checkoutID}
+                        updateShopClient={updateShopClient}
+                        products={products}
+                      />
+                      <Footer />
+                    </>
                   }
                 />
               </Routes>
             </div>
-            <Footer />
           </div>
 
           {/* MENU */}
