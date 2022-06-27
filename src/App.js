@@ -18,7 +18,7 @@ import Detail from './components/Detail';
 import About from './components/About';
 import Faq from './components/Faq';
 import Stockists from './components/Stockists';
-import Filipino from './components/Filipino';
+import FilipinoFashionHistory from './components/FilipinoFashionHistory';
 import Template from './components/Template';
 import Menu from './components/Menu';
 import Footer from './components/Footer';
@@ -49,7 +49,7 @@ export default function App() {
   const [globalCss, setGlobalCss] = useState("");
   const [faqs, setFaqs] = useState([]);
   const [stockists, setStockists] = useState([]);
-  const [filipino, setFilipino] = useState([]);
+  const [filipinoFashionHistory, setFilipinoFashionHistory] = useState([]);
   const [about, setAbout] = useState("");
   const [instagram, setInstagram] = useState("@keith _lafuente");
   const [email, setEmail] = useState("keithlafuente@gmail.com");
@@ -203,20 +203,20 @@ export default function App() {
       });
 
     // FILIPINO
-    base('Filipino')
+    base('Filipino Fashion History')
       .select({ view: 'Grid view' })
       .firstPage(function (err, records) {
         if (err) {
           console.error(err);
           return;
         }
-        const _filipino = [];
+        const _filipinoFashionHistory = [];
         records.forEach(function (record) {
           const paragraph = record.get('Paragraph');
           if (paragraph)
-            _filipino.push(paragraph);
+            _filipinoFashionHistory.push(paragraph);
         });
-        setFilipino(_filipino);
+        setFilipinoFashionHistory(_filipinoFashionHistory);
       });
 
   }, []);
@@ -335,10 +335,10 @@ export default function App() {
                   }
                 />
                 <Route
-                  path="filipino"
+                  path="filipino-fashion-history"
                   element={
                     <>
-                      <Filipino filipino={filipino} />
+                      <FilipinoFashionHistory filipinoFashionHistory={filipinoFashionHistory} />
                       <Footer />
                     </>
                   }

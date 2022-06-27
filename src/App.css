@@ -404,13 +404,13 @@ footer>div {
 }
 
 .menu-open {
-  width: 300px;
+  width: 320px;
 }
 
 .menuCancelArea {
   position: fixed;
   top: 0;
-  left: 300px;
+  left: 320px;
   bottom: 0;
   right: 0;
   z-index: 10000;
