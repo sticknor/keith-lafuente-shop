@@ -137,7 +137,7 @@ export default function App() {
           if (key && color) cssVars.push(`${key + "-color"}: ${color};`);
           if (key && image && image.length > 0) cssVars.push(`${key + "-image"}: url(${image[0].url});`);
         });
-        console.log(cssVars);
+        // console.log(cssVars);
         const cssString = cssVars.join("\n");
         setGlobalCss(cssString);
       });

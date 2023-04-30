@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 
 function Card(props) {
   const { title, image, price, sold } = props;
-
   return (
     <div className={'card-container'}>
       <img

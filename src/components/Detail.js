@@ -104,6 +104,16 @@ function Detail(props) {
 
   if (product == null) return <div>loading...</div>;
 
+  // Create our number formatter.
+  var formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
+
+
+  var price = product.variants[variantIndex].price.amount;
+  var formattedPrice = formatter.format(price);
+
   return (
     <div className="detailContainer">
       <div className="detailLeftCol" >
@@ -111,7 +121,7 @@ function Detail(props) {
           <Card
             title={product.title}
             image={product.images[imageIndex]}
-            price={product.variants[variantIndex].price}
+            price={price}
             sold={!product.variants[variantIndex].available}
           />
           <div className="carousel-dots">
@@ -140,14 +150,14 @@ function Detail(props) {
           </div>
           <div className="detail-section">{product.description}</div>
           {product.variants.length <= 1 &&
-            <div className="detail-section">${product.variants[variantIndex].price}</div>
+            <div className="detail-section">{formattedPrice}</div>
           }
           {product.variants.length > 1 &&
             <div className="detail-variants">
               <select value={variantIndex} onChange={handleChangeVariant}>
                 {product.variants.map((variant, index) => {
                   if (variant.available) {
-                    return <option value={index} key={index}>{variant.title} - ${variant.price}</option>
+                    return <option value={index} key={index}>{variant.title} - {formatter.format(product.variants[index].price.amount)}</option>
                   } else {
                     return <option disabled value={index} key={index}>{variant.title} (sold out)</option>
                   }
@@ -180,14 +190,14 @@ function Detail(props) {
         </div>
         <div className="detail-section">{product.description}</div>
         {product.variants.length <= 1 &&
-          <div className="detail-section">${product.variants[variantIndex].price}</div>
+          <div className="detail-section">{formattedPrice}</div>
         }
         {product.variants.length > 1 &&
           <div className="detail-variants">
             <select value={variantIndex} onChange={handleChangeVariant}>
               {product.variants.map((variant, index) => {
                 if (variant.available) {
-                  return <option value={index} key={index}>{variant.title} - ${variant.price}</option>
+                  return <option value={index} key={index}>{variant.title} - {formatter.format(product.variants[index].price.amount)}</option>
                 } else {
                   return <option disabled value={index} key={index}>{variant.title} (sold out)</option>
                 }

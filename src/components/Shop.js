@@ -65,7 +65,7 @@ function Shop(props) {
                 key={index}
                 title={product.title}
                 image={product.images[0]}
-                price={product.variants[0].price}
+                price={product.variants[0].price.amount}
                 sold={!product.variants[0].available}
               />
             </div>

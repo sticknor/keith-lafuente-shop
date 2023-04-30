@@ -99,7 +99,7 @@ function Cart(props) {
                   </div>
                 </div>
                 <div className="cart-product-quantity">{lineItem.quantity}</div>
-                <div>{formatter.format(lineItem.variant.price)}</div>
+                <div>{formatter.format(lineItem.variant.price.amount)}</div>
               </div>
             );
           })}
